@@ -1,0 +1,51 @@
+<div class='header'>
+  <div class='add'>
+    <button (click)="isAddNewTask = !isAddNewTask;">Добавить</button>
+    <div *ngIf="isAddNewTask" class="editorAdd">
+        <input type="text" placeholder="Событие" [(ngModel)]="addTask.title"/>
+        <input type="text" placeholder="Имена участников" [(ngModel)]="addTask.names"/>
+
+        <textarea placeholder="Описание" [(ngModel)]="addTask.description"></textarea>
+        <button (click)="doAddTaskToday(addTask)"> Готово </button> <button (click)="doRemoveTaskToday()"> Удалить </button>
+      </div>
+  </div>
+  <div class='add'>
+ <button>Обновить</button>
+  </div>
+  <div class='search'>
+    <input #text type='text' id="searchText" (keyup) = "searchTask(text.value)" placeholder="поиск..."/>
+    <div class="searchResult">
+      <div class="searchResultTasks" *ngFor="let task of searchResultTasks" (click)="doToMonth(task.date)">
+        {{ task.title }}
+      </div>
+    </div>
+  </div>
+</div>
+<div class='monthHeader'>
+  <div class='monthButton'>
+    <button (click)="doPrevMonth()"><</button>
+    <button>{{ currentMonth.name }} {{ year }}</button>
+    <button (click)="doNextMonth()">></button>
+    <button (click)="doReturnCurrentMonth()">Сегодня</button>
+  </div>
+</div>
+<div class='month'>
+  <div class='week' *ngFor="let monthWeek of resMonths; index as monthWeekIndex">
+    <div class='day' *ngFor="let day of monthWeek.days; index as dayIndex">
+      <div class='dayDetail' (click) = "day.isShowAddModal = !day.isShowAddModal;">
+        <span [ngStyle]="{'color': day.isShow ? 'yellow':'red'}">{{ monthWeekIndex === 0 ? days[dayIndex] + ' '+ day.day : day.day }}</span>
+        <div *ngIf="day?.task">
+          <b>{{ day.task?.title }}</b><br/>
+          <span>{{ day.task?.names }}</span>
+        </div>
+      </div>
+      <div *ngIf="day.isShowAddModal" class="editor">
+        <input type="text" placeholder="Событие" [(ngModel)]="addTask.title"/>
+        <input type="text" placeholder="Имена участников" [(ngModel)]="addTask.names"/>
+
+        <textarea placeholder="Описание" [(ngModel)]="addTask.description"></textarea>
+        <button (click)="doAddTask(day, addTask)"> Готово </button> <button (click)="deleteTask(day)">Удалить</button>
+      </div>
+    </div>
+  </div>
+</div>

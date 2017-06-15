@@ -1,0 +1,85 @@
+.header {
+  display: flex;
+  padding-top: 80px;
+  margin: 2px;
+  background-color: transparentize(white, 0.8);
+}
+
+.add {
+  color: #ddd;
+  padding: 10px 0 10px 10px;
+  margin: 2px;
+  margin-right: 8px;
+  flex: 0.1;
+  position: relative;
+}
+
+.search {
+  color: #ddd;
+  padding: 10px 0 10px 10px;
+  margin: 2px;
+  margin-right: 8px;
+  flex: 1 1 0;
+  position: relative;
+}
+
+.searchResult {
+  position: absolute;
+  top: 100%;
+  left: 95%;
+  background-color: transparentize(whitesmoke, 0.8);
+}
+
+.searchResultTasks {
+  position: absolute;
+  background-color: transparentize(whitesmoke, 0.8);
+  z-index: 2;
+  cursor: pointer;
+  color: black;
+}
+
+.month {
+  min-width: 800px;
+  height: 100%;
+  margin: 8px 0 0 0;
+}
+
+.week {
+  display: flex;
+}
+
+.day {
+  background-color: transparentize(white, 0.8);
+  color: #ddd;
+  padding: 10px 0 75px 10px;
+  margin: 2px;
+  flex: 1 1 0;
+  position: relative;
+}
+.dayDetail {
+  color: #ddd;
+  padding: 10px 0 75px 10px;
+  cursor: pointer;
+}
+.editor {
+  position: absolute;
+  left: 5%;
+  bottom: 30%;
+  background-color: transparentize(yellowgreen, 0.8);
+  z-index: 1;
+}
+
+#searchText {
+  float: right;
+}
+
+.monthHeader {
+  display: flex;
+  margin: 2px;
+  background-color: transparentize(white, 0.8);
+}
+.editorAdd {
+  position: absolute;
+  background-color: transparentize(yellowgreen, 0.8);
+  z-index: 2;
+}

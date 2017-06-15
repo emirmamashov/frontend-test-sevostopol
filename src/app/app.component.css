@@ -1,0 +1,4 @@
+body {
+  box-sizing: border-box;
+  background: linear-gradient(135deg, #b24, #f62) fixed;
+}
